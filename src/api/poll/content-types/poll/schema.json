@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "polls",
+  "info": {
+    "singularName": "poll",
+    "pluralName": "polls",
+    "displayName": "poll"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "pollTitle": {
+      "type": "string"
+    },
+    "pollQuestion": {
+      "type": "text"
+    },
+    "PollOptions": {
+      "type": "component",
+      "component": "polls.poll-option",
+      "repeatable": true
+    }
+  }
+}

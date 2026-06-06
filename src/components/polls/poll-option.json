@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_polls_poll_options",
+  "info": {
+    "displayName": "PollOption"
+  },
+  "options": {},
+  "attributes": {
+    "PollOptionTitle": {
+      "type": "string"
+    },
+    "PollOptionDescription": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

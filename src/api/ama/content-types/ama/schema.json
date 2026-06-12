@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "amas",
+  "info": {
+    "singularName": "ama",
+    "pluralName": "amas",
+    "displayName": "ama"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "questions": {
+      "type": "component",
+      "component": "ama.ama-question",
+      "repeatable": true
+    },
+    "Answers": {
+      "type": "component",
+      "component": "ama.ama-answer",
+      "repeatable": true
+    }
+  }
+}

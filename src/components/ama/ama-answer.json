@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_ama_ama_answers",
+  "info": {
+    "displayName": "AMAAnswer",
+    "icon": "bell"
+  },
+  "options": {},
+  "attributes": {
+    "Content": {
+      "type": "string"
+    },
+    "CreationDate": {
+      "type": "date"
+    },
+    "InitialComponent": {
+      "type": "component",
+      "component": "ama.ama-question",
+      "repeatable": true
+    },
+    "Respondent": {
+      "type": "component",
+      "component": "ama.ama-user",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

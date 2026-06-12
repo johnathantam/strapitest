@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_ama_ama_users",
+  "info": {
+    "displayName": "AMAUser",
+    "icon": "crown"
+  },
+  "options": {},
+  "attributes": {
+    "FirstName": {
+      "type": "string"
+    },
+    "LastName": {
+      "type": "string"
+    },
+    "ProfilePhoto": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_ama_ama_questions",
+  "info": {
+    "displayName": "AMAQuestion",
+    "icon": "filePdf"
+  },
+  "options": {},
+  "attributes": {
+    "Content": {
+      "type": "string"
+    },
+    "CreationDate": {
+      "type": "date"
+    },
+    "Asker": {
+      "type": "component",
+      "component": "ama.ama-user",
+      "repeatable": false
+    },
+    "Respondent": {
+      "type": "component",
+      "component": "ama.ama-user",
+      "repeatable": true
+    },
+    "isAnonymous": {
+      "type": "boolean"
+    }
+  },
+  "config": {}
+}

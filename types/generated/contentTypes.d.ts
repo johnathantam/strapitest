@@ -440,6 +440,32 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiAmaAma extends Struct.CollectionTypeSchema {
+  collectionName: 'amas';
+  info: {
+    displayName: 'ama';
+    pluralName: 'amas';
+    singularName: 'ama';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Answers: Schema.Attribute.Component<'ama.ama-answer', true>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::ama.ama'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    questions: Schema.Attribute.Component<'ama.ama-question', true>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiEventEvent extends Struct.CollectionTypeSchema {
   collectionName: 'events';
   info: {
@@ -1012,6 +1038,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::ama.ama': ApiAmaAma;
       'api::event.event': ApiEventEvent;
       'api::poll.poll': ApiPollPoll;
       'plugin::content-releases.release': PluginContentReleasesRelease;

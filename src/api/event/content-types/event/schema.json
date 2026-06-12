@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "events",
+  "info": {
+    "singularName": "event",
+    "pluralName": "events",
+    "displayName": "event"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "EventTitle": {
+      "type": "string"
+    },
+    "EventDescription": {
+      "type": "text"
+    },
+    "EventLocation": {
+      "type": "string"
+    },
+    "EventIsAllDay": {
+      "type": "boolean"
+    },
+    "EventStartTime": {
+      "type": "time"
+    },
+    "EventEndTime": {
+      "type": "time"
+    },
+    "EventDate": {
+      "type": "date"
+    },
+    "EventType": {
+      "type": "enumeration",
+      "enum": [
+        "work",
+        "holiday",
+        "vacation",
+        "social"
+      ]
+    }
+  }
+}

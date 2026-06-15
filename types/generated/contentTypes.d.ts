@@ -496,7 +496,7 @@ export interface ApiAmaAma extends Struct.CollectionTypeSchema {
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::ama.ama'> &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    questions: Schema.Attribute.Component<'ama.ama-question', true>;
+    Questions: Schema.Attribute.Component<'ama.ama-question', true>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -558,8 +558,8 @@ export interface ApiPollResponsePollResponse
       'api::poll-response.poll-response'
     > &
       Schema.Attribute.Private;
-    pollResponse: Schema.Attribute.JSON;
-    pollResponseType: Schema.Attribute.Enumeration<
+    PollResponse: Schema.Attribute.JSON;
+    PollResponseType: Schema.Attribute.Enumeration<
       ['radio', 'slider', 'survey']
     >;
     publishedAt: Schema.Attribute.DateTime;
@@ -618,8 +618,8 @@ export interface ApiRadioCardPollRadioCardPoll
     > &
       Schema.Attribute.Private;
     PollOptions: Schema.Attribute.Component<'polls.poll-option', true>;
-    pollQuestion: Schema.Attribute.String;
-    pollTitle: Schema.Attribute.String;
+    PollQuestion: Schema.Attribute.String;
+    PollTitle: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

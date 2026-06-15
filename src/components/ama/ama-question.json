@@ -22,7 +22,7 @@
       "component": "ama.ama-user",
       "repeatable": true
     },
-    "isAnonymous": {
+    "IsAnonymous": {
       "type": "boolean"
     }
   },

@@ -24,7 +24,7 @@ export interface AmaAmaQuestion extends Struct.ComponentSchema {
     Asker: Schema.Attribute.Component<'ama.ama-user', false>;
     Content: Schema.Attribute.String;
     CreationDate: Schema.Attribute.Date;
-    isAnonymous: Schema.Attribute.Boolean;
+    IsAnonymous: Schema.Attribute.Boolean;
     Respondent: Schema.Attribute.Component<'ama.ama-user', true>;
   };
 }

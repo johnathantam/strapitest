@@ -11,10 +11,10 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "pollTitle": {
+    "PollTitle": {
       "type": "string"
     },
-    "pollQuestion": {
+    "PollQuestion": {
       "type": "string"
     },
     "PollOptions": {

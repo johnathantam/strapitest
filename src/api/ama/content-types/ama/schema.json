@@ -11,7 +11,7 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "questions": {
+    "Questions": {
       "type": "component",
       "component": "ama.ama-question",
       "repeatable": true

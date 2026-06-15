@@ -59,3 +59,8 @@ Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/
 ---
 
 <sub>🤫 Psst! [Strapi is hiring](https://strapi.io/careers).</sub>
+
+# To call:
+
+(Invoke-WebRequest -Uri "https://refreshing-action-dec21b4703.strapiapp.com/api/radio-card-polls?populate=*" `
+  -Headers @{ "Authorization" = "Bearer [token]" }).Content | ConvertFrom-Json | ConvertTo-Json -Depth 10

@@ -11,7 +11,7 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "pollResponseType": {
+    "PollResponseType": {
       "type": "enumeration",
       "enum": [
         "radio",
@@ -19,7 +19,7 @@
         "survey"
       ]
     },
-    "pollResponse": {
+    "PollResponse": {
       "type": "json"
     }
   }

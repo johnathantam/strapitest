@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "survey_polls",
+  "info": {
+    "singularName": "survey-poll",
+    "pluralName": "survey-polls",
+    "displayName": "surveyPoll"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "SurveyPollTitle": {
+      "type": "string"
+    },
+    "SurveyPollQuestion": {
+      "type": "text"
+    },
+    "SurveyPollOptions": {
+      "type": "component",
+      "component": "polls.survey-poll-option",
+      "repeatable": true
+    }
+  }
+}

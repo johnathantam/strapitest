@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_polls_survey_poll_options",
+  "info": {
+    "displayName": "SurveyPollOption",
+    "icon": "archive"
+  },
+  "options": {},
+  "attributes": {
+    "SurveyOptionQuestion": {
+      "type": "string"
+    },
+    "SurveyOptionQuestionDescription": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}

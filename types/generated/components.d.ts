@@ -47,11 +47,23 @@ export interface AmaAmaUser extends Struct.ComponentSchema {
 export interface PollsPollOption extends Struct.ComponentSchema {
   collectionName: 'components_polls_poll_options';
   info: {
-    displayName: 'PollOption';
+    displayName: 'RadioCardPollOption';
   };
   attributes: {
     PollOptionDescription: Schema.Attribute.String;
     PollOptionTitle: Schema.Attribute.String;
+  };
+}
+
+export interface PollsSurveyPollOption extends Struct.ComponentSchema {
+  collectionName: 'components_polls_survey_poll_options';
+  info: {
+    displayName: 'SurveyPollOption';
+    icon: 'archive';
+  };
+  attributes: {
+    SurveyOptionQuestion: Schema.Attribute.String;
+    SurveyOptionQuestionDescription: Schema.Attribute.Text;
   };
 }
 
@@ -62,6 +74,7 @@ declare module '@strapi/strapi' {
       'ama.ama-question': AmaAmaQuestion;
       'ama.ama-user': AmaAmaUser;
       'polls.poll-option': PollsPollOption;
+      'polls.survey-poll-option': PollsSurveyPollOption;
     }
   }
 }

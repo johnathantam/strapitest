@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "radio_card_polls",
+  "info": {
+    "singularName": "radio-card-poll",
+    "pluralName": "radio-card-polls",
+    "displayName": "radioCardPoll"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "pollTitle": {
+      "type": "string"
+    },
+    "pollQuestion": {
+      "type": "string"
+    },
+    "PollOptions": {
+      "type": "component",
+      "component": "polls.poll-option",
+      "repeatable": true
+    }
+  }
+}

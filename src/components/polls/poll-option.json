@@ -1,7 +1,7 @@
 {
   "collectionName": "components_polls_poll_options",
   "info": {
-    "displayName": "PollOption"
+    "displayName": "RadioCardPollOption"
   },
   "options": {},
   "attributes": {

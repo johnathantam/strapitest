@@ -558,10 +558,8 @@ export interface ApiPollResponsePollResponse
       'api::poll-response.poll-response'
     > &
       Schema.Attribute.Private;
-    PollResponse: Schema.Attribute.JSON;
-    PollResponseType: Schema.Attribute.Enumeration<
-      ['radio', 'slider', 'survey']
-    >;
+    pollDocumentId: Schema.Attribute.UID;
+    PollResponses: Schema.Attribute.JSON;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

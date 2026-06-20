@@ -11,16 +11,11 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "PollResponseType": {
-      "type": "enumeration",
-      "enum": [
-        "radio",
-        "slider",
-        "survey"
-      ]
-    },
-    "PollResponse": {
+    "PollResponses": {
       "type": "json"
+    },
+    "pollDocumentId": {
+      "type": "uid"
     }
   }
 }

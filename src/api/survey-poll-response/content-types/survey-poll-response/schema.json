@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "survey_poll_responses",
+  "info": {
+    "singularName": "survey-poll-response",
+    "pluralName": "survey-poll-responses",
+    "displayName": "surveyPollResponse"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "correspondingSurveyPollId": {
+      "type": "string"
+    },
+    "surveyPollResponse": {
+      "type": "component",
+      "component": "polls.survey-poll-option",
+      "repeatable": true
+    }
+  }
+}

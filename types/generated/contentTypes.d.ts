@@ -537,59 +537,29 @@ export interface ApiEventEvent extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiPollResponsePollResponse
+export interface ApiRadioCardPollResponseRadioCardPollResponse
   extends Struct.CollectionTypeSchema {
-  collectionName: 'poll_responses';
+  collectionName: 'radio_card_poll_responses';
   info: {
-    displayName: 'pollResponse';
-    pluralName: 'poll-responses';
-    singularName: 'poll-response';
+    displayName: 'radioCardPollResponse';
+    pluralName: 'radio-card-poll-responses';
+    singularName: 'radio-card-poll-response';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
+    correspondingRadioCardPollId: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::poll-response.poll-response'
+      'api::radio-card-poll-response.radio-card-poll-response'
     > &
       Schema.Attribute.Private;
-    pollDocumentId: Schema.Attribute.String;
-    pollDocumentType: Schema.Attribute.Enumeration<
-      ['radio', 'slider', 'survey']
-    >;
-    pollResponse: Schema.Attribute.JSON;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiPollPoll extends Struct.CollectionTypeSchema {
-  collectionName: 'polls';
-  info: {
-    displayName: 'poll';
-    pluralName: 'polls';
-    singularName: 'poll';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::poll.poll'> &
-      Schema.Attribute.Private;
-    PollOptions: Schema.Attribute.Component<'polls.poll-option', true>;
-    pollQuestion: Schema.Attribute.Text;
-    pollTitle: Schema.Attribute.String;
+    pollChoiceTitle: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -628,6 +598,36 @@ export interface ApiRadioCardPollRadioCardPoll
   };
 }
 
+export interface ApiSliderPollResponseSliderPollResponse
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'slider_poll_responses';
+  info: {
+    displayName: 'sliderPollResponse';
+    pluralName: 'slider-poll-responses';
+    singularName: 'slider-poll-response';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    correspondingSliderPollId: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::slider-poll-response.slider-poll-response'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    sliderPollResponse: Schema.Attribute.Integer;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiSliderPollSliderPoll extends Struct.CollectionTypeSchema {
   collectionName: 'slider_polls';
   info: {
@@ -653,6 +653,39 @@ export interface ApiSliderPollSliderPoll extends Struct.CollectionTypeSchema {
     SliderMinimumValue: Schema.Attribute.Integer;
     SliderPollQuestion: Schema.Attribute.Text;
     SliderPollTitle: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiSurveyPollResponseSurveyPollResponse
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'survey_poll_responses';
+  info: {
+    displayName: 'surveyPollResponse';
+    pluralName: 'survey-poll-responses';
+    singularName: 'survey-poll-response';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    correspondingSurveyPollId: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::survey-poll-response.survey-poll-response'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    surveyPollResponse: Schema.Attribute.Component<
+      'polls.survey-poll-option',
+      true
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1206,10 +1239,11 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::ama.ama': ApiAmaAma;
       'api::event.event': ApiEventEvent;
-      'api::poll-response.poll-response': ApiPollResponsePollResponse;
-      'api::poll.poll': ApiPollPoll;
+      'api::radio-card-poll-response.radio-card-poll-response': ApiRadioCardPollResponseRadioCardPollResponse;
       'api::radio-card-poll.radio-card-poll': ApiRadioCardPollRadioCardPoll;
+      'api::slider-poll-response.slider-poll-response': ApiSliderPollResponseSliderPollResponse;
       'api::slider-poll.slider-poll': ApiSliderPollSliderPoll;
+      'api::survey-poll-response.survey-poll-response': ApiSurveyPollResponseSurveyPollResponse;
       'api::survey-poll.survey-poll': ApiSurveyPollSurveyPoll;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

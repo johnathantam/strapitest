@@ -558,7 +558,7 @@ export interface ApiPollResponsePollResponse
       'api::poll-response.poll-response'
     > &
       Schema.Attribute.Private;
-    pollDocumentId: Schema.Attribute.UID;
+    pollDocumentId: Schema.Attribute.String;
     pollDocumentType: Schema.Attribute.Enumeration<
       ['radio', 'slider', 'survey']
     >;

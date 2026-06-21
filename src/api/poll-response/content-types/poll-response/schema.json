@@ -14,9 +14,6 @@
     "pollResponse": {
       "type": "json"
     },
-    "pollDocumentId": {
-      "type": "uid"
-    },
     "pollDocumentType": {
       "type": "enumeration",
       "enum": [
@@ -24,6 +21,9 @@
         "slider",
         "survey"
       ]
+    },
+    "pollDocumentId": {
+      "type": "string"
     }
   }
 }

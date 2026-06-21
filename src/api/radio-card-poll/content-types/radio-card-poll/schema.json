@@ -21,11 +21,6 @@
       "type": "component",
       "component": "polls.poll-option",
       "repeatable": true
-    },
-    "Responses": {
-      "type": "component",
-      "component": "polls.radio-card-poll-response",
-      "repeatable": true
     }
   }
 }

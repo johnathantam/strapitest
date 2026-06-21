@@ -21,11 +21,6 @@
       "type": "component",
       "component": "polls.survey-poll-option",
       "repeatable": true
-    },
-    "Responses": {
-      "type": "component",
-      "component": "polls.survey-poll-response",
-      "repeatable": true
     }
   }
 }

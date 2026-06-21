@@ -537,6 +537,41 @@ export interface ApiEventEvent extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiPollResponsePollResponse
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'poll_responses';
+  info: {
+    displayName: 'pollResponse';
+    pluralName: 'poll-responses';
+    singularName: 'poll-response';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::poll-response.poll-response'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    response: Schema.Attribute.DynamicZone<
+      [
+        'polls.survey-poll-response',
+        'polls.slider-poll-response',
+        'polls.radio-card-poll-response',
+      ]
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiRadioCardPollRadioCardPoll
   extends Struct.CollectionTypeSchema {
   collectionName: 'radio_card_polls';
@@ -562,10 +597,6 @@ export interface ApiRadioCardPollRadioCardPoll
     PollQuestion: Schema.Attribute.String;
     PollTitle: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
-    Responses: Schema.Attribute.Component<
-      'polls.radio-card-poll-response',
-      true
-    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -593,7 +624,6 @@ export interface ApiSliderPollSliderPoll extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    Responses: Schema.Attribute.Component<'polls.slider-poll-response', true>;
     SliderPollOption: Schema.Attribute.Component<
       'polls.slider-poll-option',
       false
@@ -627,7 +657,6 @@ export interface ApiSurveyPollSurveyPoll extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    Responses: Schema.Attribute.Component<'polls.survey-poll-response', true>;
     SurveyPollOptions: Schema.Attribute.Component<
       'polls.survey-poll-option',
       true
@@ -1154,6 +1183,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::ama.ama': ApiAmaAma;
       'api::event.event': ApiEventEvent;
+      'api::poll-response.poll-response': ApiPollResponsePollResponse;
       'api::radio-card-poll.radio-card-poll': ApiRadioCardPollRadioCardPoll;
       'api::slider-poll.slider-poll': ApiSliderPollSliderPoll;
       'api::survey-poll.survey-poll': ApiSurveyPollSurveyPoll;

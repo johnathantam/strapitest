@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "poll_responses",
+  "info": {
+    "singularName": "poll-response",
+    "pluralName": "poll-responses",
+    "displayName": "pollResponse"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "response": {
+      "type": "dynamiczone",
+      "components": [
+        "polls.survey-poll-response",
+        "polls.slider-poll-response",
+        "polls.radio-card-poll-response"
+      ]
+    }
+  }
+}

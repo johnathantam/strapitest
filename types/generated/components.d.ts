@@ -62,6 +62,7 @@ export interface PollsRadioCardPollResponse extends Struct.ComponentSchema {
     icon: 'bulletList';
   };
   attributes: {
+    correspondingRadioCardPollId: Schema.Attribute.String;
     pollChoiceTitle: Schema.Attribute.String;
   };
 }
@@ -84,6 +85,7 @@ export interface PollsSliderPollResponse extends Struct.ComponentSchema {
     displayName: 'SliderPollResponse';
   };
   attributes: {
+    correspondingSliderPollId: Schema.Attribute.String;
     sliderPollResponse: Schema.Attribute.Integer;
   };
 }
@@ -107,6 +109,7 @@ export interface PollsSurveyPollResponse extends Struct.ComponentSchema {
     icon: 'bulletList';
   };
   attributes: {
+    correspondingSurveyPollId: Schema.Attribute.String;
     SurveyPollResponse: Schema.Attribute.Component<
       'polls.survey-poll-option',
       true

@@ -6,6 +6,9 @@
   },
   "options": {},
   "attributes": {
+    "correspondingRadioCardPollId": {
+      "type": "string"
+    },
     "pollChoiceTitle": {
       "type": "string"
     }

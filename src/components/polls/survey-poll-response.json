@@ -6,6 +6,9 @@
   },
   "options": {},
   "attributes": {
+    "correspondingSurveyPollId": {
+      "type": "string"
+    },
     "SurveyPollResponse": {
       "type": "component",
       "component": "polls.survey-poll-option",

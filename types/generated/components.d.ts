@@ -55,6 +55,39 @@ export interface PollsPollOption extends Struct.ComponentSchema {
   };
 }
 
+export interface PollsRadioCardPollResponse extends Struct.ComponentSchema {
+  collectionName: 'components_polls_radio_card_poll_responses';
+  info: {
+    displayName: 'RadioCardPollResponse';
+    icon: 'bulletList';
+  };
+  attributes: {
+    pollChoiceTitle: Schema.Attribute.String;
+  };
+}
+
+export interface PollsSliderPollOption extends Struct.ComponentSchema {
+  collectionName: 'components_polls_slider_poll_options';
+  info: {
+    displayName: 'SliderPollOption';
+    icon: 'bulletList';
+  };
+  attributes: {
+    maxSliderValue: Schema.Attribute.Integer;
+    minSliderValue: Schema.Attribute.Integer;
+  };
+}
+
+export interface PollsSliderPollResponse extends Struct.ComponentSchema {
+  collectionName: 'components_polls_slider_poll_responses';
+  info: {
+    displayName: 'SliderPollResponse';
+  };
+  attributes: {
+    sliderPollResponse: Schema.Attribute.Integer;
+  };
+}
+
 export interface PollsSurveyPollOption extends Struct.ComponentSchema {
   collectionName: 'components_polls_survey_poll_options';
   info: {
@@ -67,6 +100,20 @@ export interface PollsSurveyPollOption extends Struct.ComponentSchema {
   };
 }
 
+export interface PollsSurveyPollResponse extends Struct.ComponentSchema {
+  collectionName: 'components_polls_survey_poll_responses';
+  info: {
+    displayName: 'SurveyPollResponse';
+    icon: 'bulletList';
+  };
+  attributes: {
+    SurveyPollResponse: Schema.Attribute.Component<
+      'polls.survey-poll-option',
+      true
+    >;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
@@ -74,7 +121,11 @@ declare module '@strapi/strapi' {
       'ama.ama-question': AmaAmaQuestion;
       'ama.ama-user': AmaAmaUser;
       'polls.poll-option': PollsPollOption;
+      'polls.radio-card-poll-response': PollsRadioCardPollResponse;
+      'polls.slider-poll-option': PollsSliderPollOption;
+      'polls.slider-poll-response': PollsSliderPollResponse;
       'polls.survey-poll-option': PollsSurveyPollOption;
+      'polls.survey-poll-response': PollsSurveyPollResponse;
     }
   }
 }

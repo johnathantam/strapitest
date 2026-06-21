@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_polls_slider_poll_responses",
+  "info": {
+    "displayName": "SliderPollResponse"
+  },
+  "options": {},
+  "attributes": {
+    "sliderPollResponse": {
+      "type": "integer"
+    }
+  },
+  "config": {}
+}

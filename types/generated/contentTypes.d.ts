@@ -537,36 +537,6 @@ export interface ApiEventEvent extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiRadioCardPollResponseRadioCardPollResponse
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'radio_card_poll_responses';
-  info: {
-    displayName: 'radioCardPollResponse';
-    pluralName: 'radio-card-poll-responses';
-    singularName: 'radio-card-poll-response';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    correspondingRadioCardPollId: Schema.Attribute.String;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::radio-card-poll-response.radio-card-poll-response'
-    > &
-      Schema.Attribute.Private;
-    pollChoiceTitle: Schema.Attribute.String;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
 export interface ApiRadioCardPollRadioCardPoll
   extends Struct.CollectionTypeSchema {
   collectionName: 'radio_card_polls';
@@ -592,36 +562,10 @@ export interface ApiRadioCardPollRadioCardPoll
     PollQuestion: Schema.Attribute.String;
     PollTitle: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiSliderPollResponseSliderPollResponse
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'slider_poll_responses';
-  info: {
-    displayName: 'sliderPollResponse';
-    pluralName: 'slider-poll-responses';
-    singularName: 'slider-poll-response';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    correspondingSliderPollId: Schema.Attribute.String;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::slider-poll-response.slider-poll-response'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    sliderPollResponse: Schema.Attribute.Integer;
+    Responses: Schema.Attribute.Component<
+      'polls.radio-card-poll-response',
+      true
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -649,43 +593,13 @@ export interface ApiSliderPollSliderPoll extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    SliderMaximumValue: Schema.Attribute.Integer;
-    SliderMinimumValue: Schema.Attribute.Integer;
+    Responses: Schema.Attribute.Component<'polls.slider-poll-response', true>;
+    SliderPollOption: Schema.Attribute.Component<
+      'polls.slider-poll-option',
+      false
+    >;
     SliderPollQuestion: Schema.Attribute.Text;
     SliderPollTitle: Schema.Attribute.String;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiSurveyPollResponseSurveyPollResponse
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'survey_poll_responses';
-  info: {
-    displayName: 'surveyPollResponse';
-    pluralName: 'survey-poll-responses';
-    singularName: 'survey-poll-response';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    correspondingSurveyPollId: Schema.Attribute.String;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::survey-poll-response.survey-poll-response'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    surveyPollResponse: Schema.Attribute.Component<
-      'polls.survey-poll-option',
-      true
-    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -713,6 +627,7 @@ export interface ApiSurveyPollSurveyPoll extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    Responses: Schema.Attribute.Component<'polls.survey-poll-response', true>;
     SurveyPollOptions: Schema.Attribute.Component<
       'polls.survey-poll-option',
       true
@@ -1239,11 +1154,8 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::ama.ama': ApiAmaAma;
       'api::event.event': ApiEventEvent;
-      'api::radio-card-poll-response.radio-card-poll-response': ApiRadioCardPollResponseRadioCardPollResponse;
       'api::radio-card-poll.radio-card-poll': ApiRadioCardPollRadioCardPoll;
-      'api::slider-poll-response.slider-poll-response': ApiSliderPollResponseSliderPollResponse;
       'api::slider-poll.slider-poll': ApiSliderPollSliderPoll;
-      'api::survey-poll-response.survey-poll-response': ApiSurveyPollResponseSurveyPollResponse;
       'api::survey-poll.survey-poll': ApiSurveyPollSurveyPoll;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

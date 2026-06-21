@@ -17,11 +17,15 @@
     "SliderPollQuestion": {
       "type": "text"
     },
-    "SliderMinimumValue": {
-      "type": "integer"
+    "SliderPollOption": {
+      "type": "component",
+      "component": "polls.slider-poll-option",
+      "repeatable": false
     },
-    "SliderMaximumValue": {
-      "type": "integer"
+    "Responses": {
+      "type": "component",
+      "component": "polls.slider-poll-response",
+      "repeatable": true
     }
   }
 }

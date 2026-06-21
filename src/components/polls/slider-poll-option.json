@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_polls_slider_poll_options",
+  "info": {
+    "displayName": "SliderPollOption",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "minSliderValue": {
+      "type": "integer"
+    },
+    "maxSliderValue": {
+      "type": "integer"
+    }
+  },
+  "config": {}
+}

@@ -11,7 +11,7 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "PollResponse": {
+    "pollResponse": {
       "type": "json"
     },
     "pollDocumentId": {

@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "radio_card_poll_responses",
+  "info": {
+    "singularName": "radio-card-poll-response",
+    "pluralName": "radio-card-poll-responses",
+    "displayName": "radioCardPollResponse"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "response": {
+      "type": "component",
+      "component": "polls.radio-card-poll-response",
+      "repeatable": true
+    }
+  }
+}

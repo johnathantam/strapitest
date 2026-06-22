@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "slider_poll_responses",
+  "info": {
+    "singularName": "slider-poll-response",
+    "pluralName": "slider-poll-responses",
+    "displayName": "sliderPollResponse"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "response": {
+      "type": "component",
+      "component": "polls.slider-poll-response",
+      "repeatable": true
+    }
+  }
+}

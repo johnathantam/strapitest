@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "leaderboard_users",
+  "info": {
+    "singularName": "leaderboard-user",
+    "pluralName": "leaderboard-users",
+    "displayName": "leaderboardUser"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "sId": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "points": {
+      "type": "integer"
+    }
+  }
+}

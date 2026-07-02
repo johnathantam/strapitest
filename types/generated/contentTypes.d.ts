@@ -537,6 +537,37 @@ export interface ApiEventEvent extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiLeaderboardUserLeaderboardUser
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'leaderboard_users';
+  info: {
+    displayName: 'leaderboardUser';
+    pluralName: 'leaderboard-users';
+    singularName: 'leaderboard-user';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::leaderboard-user.leaderboard-user'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    points: Schema.Attribute.Integer;
+    publishedAt: Schema.Attribute.DateTime;
+    sId: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiRadioCardPollResponseRadioCardPollResponse
   extends Struct.CollectionTypeSchema {
   collectionName: 'radio_card_poll_responses';
@@ -1238,6 +1269,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::ama.ama': ApiAmaAma;
       'api::event.event': ApiEventEvent;
+      'api::leaderboard-user.leaderboard-user': ApiLeaderboardUserLeaderboardUser;
       'api::radio-card-poll-response.radio-card-poll-response': ApiRadioCardPollResponseRadioCardPollResponse;
       'api::radio-card-poll.radio-card-poll': ApiRadioCardPollRadioCardPoll;
       'api::slider-poll-response.slider-poll-response': ApiSliderPollResponseSliderPollResponse;
